@@ -20,6 +20,11 @@ CREATE TABLE categorias (
     nombre VARCHAR(100) NOT NULL,
     descripcion VARCHAR(200)
 );
+-- Almacena los departamentos de la institución. Permite que varios solicitantes pertenezcan al mismo departamento sin repetir su nombre.
+CREATE TABLE departamentos (
+    id_departamento INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL UNIQUE
+);
 
 CREATE TABLE equipos (
     id_equipo INT AUTO_INCREMENT PRIMARY KEY,
@@ -48,7 +53,11 @@ CREATE TABLE solicitantes (
     id_solicitante INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
     num_institucional VARCHAR(50) NOT NULL UNIQUE,
-    departamento VARCHAR(100) NOT NULL
+    id_departamento INT NOT NULL,
+
+    CONSTRAINT fk_solicitante_departamento
+    FOREIGN KEY (id_departamento)
+    REFERENCES departamentos(id_departamento)
 );
 
 CREATE TABLE usuarios (
@@ -103,3 +112,4 @@ CREATE TABLE devoluciones (
 );
 
 SHOW TABLES;
+DROP TABLE categorias;
