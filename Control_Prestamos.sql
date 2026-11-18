@@ -1,4 +1,4 @@
-escuela-- ============================================================
+============================================================
 -- PROYECTO - TALLER DE BASE DE DATOS
 -- MOTOR: MariaDB
 -- CONTEXTO: control de prestamos "control_prestamos"
