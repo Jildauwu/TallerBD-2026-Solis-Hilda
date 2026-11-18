@@ -112,4 +112,4 @@ CREATE TABLE devoluciones (
 );
 
 SHOW TABLES;
-DROP TABLE categorias;
+
