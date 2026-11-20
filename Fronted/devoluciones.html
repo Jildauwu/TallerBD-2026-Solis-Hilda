@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Devoluciones - Control de Equipos</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <header>
+        <h1>Control de Préstamos de Equipos</h1>
+        <p>Administración de equipos tecnológicos</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="equipos.html">Equipos</a>
+        <a href="solicitantes.html">Solicitantes</a>
+        <a href="prestamos.html">Préstamos</a>
+        <a href="devoluciones.html">Devoluciones</a>
+    </nav>
+
+    <main>
+        <h2>Registro de devoluciones</h2>
+
+        <p>
+            Formulario para registrar la devolución
+            de los equipos prestados.
+        </p>
+
+        <form id="formDevoluciones">
+
+            <label for="prestamo">
+                Préstamo que se va a devolver:
+            </label>
+            <select id="prestamo" required>
+                <option value="">
+                    Seleccione un préstamo
+                </option>
+                <option value="1">
+                    Préstamo 1 - Laptop HP
+                </option>
+                <option value="2">
+                    Préstamo 2 - Proyector Epson
+                </option>
+            </select>
+
+            <label for="fechaDevolucion">
+                Fecha y hora de devolución:
+            </label>
+            <input
+                type="datetime-local"
+                id="fechaDevolucion"
+                required
+            >
+
+            <label for="condicionRetorno">
+                Condición del equipo al regresar:
+            </label>
+            <input
+                type="text"
+                id="condicionRetorno"
+                placeholder="Ej. Buen estado"
+                required
+            >
+
+            <label for="observaciones">
+                Observaciones:
+            </label>
+            <textarea
+                id="observaciones"
+                rows="4"
+                placeholder="Escriba observaciones adicionales"
+            ></textarea>
+
+            <button type="button" disabled>
+                Registrar devolución (próximamente)
+            </button>
+
+        </form>
+
+        <h2>Lista de devoluciones</h2>
+
+        <p>
+            Datos de ejemplo para visualizar
+            el diseño de la tabla.
+        </p>
+
+        <div class="tabla-contenedor">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Préstamo</th>
+                        <th>Equipo</th>
+                        <th>Fecha de devolución</th>
+                        <th>Condición de retorno</th>
+                        <th>Observaciones</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>Proyector Epson</td>
+                        <td>2026-11-19 12:00</td>
+                        <td>Buen estado</td>
+                        <td>Sin daños visibles</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>Laptop Dell</td>
+                        <td>2026-11-18 14:30</td>
+                        <td>Buen estado</td>
+                        <td>Equipo completo</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <p>Proyecto Taller de Base de Datos - 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

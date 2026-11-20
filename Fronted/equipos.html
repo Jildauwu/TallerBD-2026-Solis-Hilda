@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipos - Control de Préstamos</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <header>
+        <h1>Control de Préstamos de Equipos</h1>
+        <p>Administración de equipos tecnológicos</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="equipos.html">Equipos</a>
+        <a href="solicitantes.html">Solicitantes</a>
+        <a href="prestamos.html">Préstamos</a>
+        <a href="devoluciones.html">Devoluciones</a>
+    </nav>
+
+    <main>
+        <h2>Registro de equipos</h2>
+        <p>Formulario para registrar equipos tecnológicos.</p>
+
+        <form id="formEquipos">
+            <label for="inventario">Número de inventario:</label>
+            <input type="text" id="inventario" required>
+
+            <label for="descripcion">Descripción:</label>
+            <input type="text" id="descripcion" required>
+
+            <label for="marca">Marca:</label>
+            <input type="text" id="marca">
+
+            <label for="modelo">Modelo:</label>
+            <input type="text" id="modelo">
+
+            <label for="categoria">Categoría:</label>
+            <select id="categoria" required>
+                <option value="">Seleccione una categoría</option>
+                <option value="Computadora">Computadora</option>
+                <option value="Proyector">Proyector</option>
+                <option value="Impresora">Impresora</option>
+            </select>
+
+            <label for="estado">Estado:</label>
+            <select id="estado" required>
+                <option value="disponible">Disponible</option>
+                <option value="prestado">Prestado</option>
+                <option value="mantenimiento">Mantenimiento</option>
+            </select>
+
+            <label for="condicion">Condición física:</label>
+            <input type="text" id="condicion">
+
+            <button type="button" disabled>
+                Guardar equipo (próximamente)
+            </button>
+        </form>
+
+        <h2>Lista de equipos</h2>
+        <p>Datos de ejemplo para mostrar el diseño.</p>
+
+        <div class="tabla-contenedor">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Inventario</th>
+                        <th>Descripción</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Categoría</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>EQ001</td>
+                        <td>Laptop</td>
+                        <td>HP</td>
+                        <td>ProBook</td>
+                        <td>Computadora</td>
+                        <td>Disponible</td>
+                    </tr>
+                    <tr>
+                        <td>EQ002</td>
+                        <td>Proyector</td>
+                        <td>Epson</td>
+                        <td>X49</td>
+                        <td>Proyector</td>
+                        <td>Prestado</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <p>Proyecto Taller de Base de Datos - 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
