@@ -5,17 +5,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Equipos - Control de Préstamos</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-
     <header>
         <h1>Control de Préstamos de Equipos</h1>
         <p>Administración de equipos tecnológicos</p>
     </header>
-
     <nav>
         <a href="index.html">Inicio</a>
         <a href="equipos.html">Equipos</a>
@@ -23,26 +20,18 @@
         <a href="prestamos.html">Préstamos</a>
         <a href="devoluciones.html">Devoluciones</a>
     </nav>
-
     <main>
-
         <h2>Registro de equipos</h2>
         <p>Formulario para registrar equipos tecnológicos.</p>
-
         <form id="formEquipos">
-
             <label for="inventario">Número de inventario:</label>
             <input type="text" id="inventario" required>
-
             <label for="descripcion">Descripción:</label>
             <input type="text" id="descripcion" required>
-
             <label for="marca">Marca:</label>
             <input type="text" id="marca">
-
             <label for="modelo">Modelo:</label>
             <input type="text" id="modelo">
-
             <label for="categoria">Categoría:</label>
             <select id="categoria" required>
                 <option value="">Seleccione una categoría</option>
@@ -50,26 +39,20 @@
                 <option value="Proyector">Proyector</option>
                 <option value="Impresora">Impresora</option>
             </select>
-
             <label for="estado">Estado:</label>
             <select id="estado" required>
                 <option value="disponible">Disponible</option>
                 <option value="prestado">Prestado</option>
                 <option value="mantenimiento">Mantenimiento</option>
             </select>
-
             <label for="condicion">Condición física:</label>
             <input type="text" id="condicion">
-
             <button type="submit">
                 Guardar equipo
             </button>
-
         </form>
-
         <h2>Lista de equipos</h2>
         <p>Equipos registrados en la base de datos.</p>
-
         <div class="tabla-contenedor">
             <table>
                 <thead>
@@ -83,59 +66,41 @@
                         <th>Acciones</th>
                     </tr>
                 </thead>
-
                 <tbody id="tablaEquipos">
                 </tbody>
             </table>
         </div>
-
         <!-- EDICIÓN DE EQUIPOS -->
-
         <section id="seccionEditar" hidden>
-
             <h2>Editar equipo</h2>
-
             <form id="formEditarEquipo">
-
                 <input type="hidden" id="editarId">
-
                 <label for="editarDescripcion">Descripción:</label>
                 <input
                     type="text"
                     id="editarDescripcion"
                     required
                 >
-
                 <label for="editarMarca">Marca:</label>
                 <input type="text" id="editarMarca">
-
                 <label for="editarModelo">Modelo:</label>
                 <input type="text" id="editarModelo">
-
                 <label for="editarCondicion">
                     Condición física:
                 </label>
                 <input type="text" id="editarCondicion">
-
                 <button type="submit">
                     Guardar cambios
                 </button>
-
                 <button type="button" id="cancelarEdicion">
                     Cancelar
                 </button>
-
             </form>
-
         </section>
-
     </main>
-
     <footer>
         <p>Proyecto Taller de Base de Datos - 2026</p>
     </footer>
-
     <script src="script.js"></script>
-
 </body>
 </html>
