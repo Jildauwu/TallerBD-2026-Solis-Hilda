@@ -1,9 +1,11 @@
 
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Solicitantes - Control de Préstamos</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
@@ -23,36 +25,66 @@
     </nav>
 
     <main>
+
         <h2>Registro de solicitantes</h2>
-        <p>Formulario para registrar personas que solicitan equipos.</p>
+
+        <p>
+            Formulario para registrar personas
+            que solicitan equipos tecnológicos.
+        </p>
 
         <form id="formSolicitantes">
 
-            <label for="nombre">Nombre completo:</label>
-            <input type="text" id="nombre" required>
+            <label for="nombre">
+                Nombre completo:
+            </label>
 
-            <label for="numero">Número institucional:</label>
-            <input type="text" id="numero" required>
+            <input
+                type="text"
+                id="nombre"
+                maxlength="150"
+                placeholder="Ingrese el nombre completo"
+                required
+            >
 
-            <label for="departamento">Departamento:</label>
+            <label for="numero">
+                Número institucional:
+            </label>
+
+            <input
+                type="text"
+                id="numero"
+                maxlength="50"
+                placeholder="Ej. EST001"
+                required
+            >
+
+            <label for="departamento">
+                Departamento:
+            </label>
+
             <select id="departamento" required>
-                <option value="">Seleccione un departamento</option>
-                <option value="Sistemas">Sistemas</option>
-                <option value="Administración">Administración</option>
-                <option value="Contabilidad">Contabilidad</option>
+                <option value="">
+                    Seleccione un departamento
+                </option>
             </select>
 
-            <button type="button" disabled>
-                Guardar solicitante (próximamente)
+            <button type="submit">
+                Guardar solicitante
             </button>
 
         </form>
 
         <h2>Lista de solicitantes</h2>
-        <p>Datos de ejemplo para mostrar el diseño.</p>
+
+        <p>
+            Solicitantes registrados en la base de datos.
+        </p>
 
         <div class="tabla-contenedor">
+
             <table>
+
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -61,22 +93,14 @@
                         <th>Departamento</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Ana López</td>
-                        <td>2026001</td>
-                        <td>Sistemas</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Carlos Pérez</td>
-                        <td>2026002</td>
-                        <td>Administración</td>
-                    </tr>
+
+                <tbody id="tablaSolicitantes">
                 </tbody>
+
             </table>
+
         </div>
+
     </main>
 
     <footer>
@@ -84,5 +108,6 @@
     </footer>
 
     <script src="script.js"></script>
+
 </body>
 </html>

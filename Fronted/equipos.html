@@ -1,9 +1,11 @@
 
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Equipos - Control de Préstamos</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
@@ -23,10 +25,12 @@
     </nav>
 
     <main>
+
         <h2>Registro de equipos</h2>
         <p>Formulario para registrar equipos tecnológicos.</p>
 
         <form id="formEquipos">
+
             <label for="inventario">Número de inventario:</label>
             <input type="text" id="inventario" required>
 
@@ -57,13 +61,14 @@
             <label for="condicion">Condición física:</label>
             <input type="text" id="condicion">
 
-            <button type="button" disabled>
-                Guardar equipo (próximamente)
+            <button type="submit">
+                Guardar equipo
             </button>
+
         </form>
 
         <h2>Lista de equipos</h2>
-        <p>Datos de ejemplo para mostrar el diseño.</p>
+        <p>Equipos registrados en la base de datos.</p>
 
         <div class="tabla-contenedor">
             <table>
@@ -75,28 +80,55 @@
                         <th>Modelo</th>
                         <th>Categoría</th>
                         <th>Estado</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>EQ001</td>
-                        <td>Laptop</td>
-                        <td>HP</td>
-                        <td>ProBook</td>
-                        <td>Computadora</td>
-                        <td>Disponible</td>
-                    </tr>
-                    <tr>
-                        <td>EQ002</td>
-                        <td>Proyector</td>
-                        <td>Epson</td>
-                        <td>X49</td>
-                        <td>Proyector</td>
-                        <td>Prestado</td>
-                    </tr>
+
+                <tbody id="tablaEquipos">
                 </tbody>
             </table>
         </div>
+
+        <!-- EDICIÓN DE EQUIPOS -->
+
+        <section id="seccionEditar" hidden>
+
+            <h2>Editar equipo</h2>
+
+            <form id="formEditarEquipo">
+
+                <input type="hidden" id="editarId">
+
+                <label for="editarDescripcion">Descripción:</label>
+                <input
+                    type="text"
+                    id="editarDescripcion"
+                    required
+                >
+
+                <label for="editarMarca">Marca:</label>
+                <input type="text" id="editarMarca">
+
+                <label for="editarModelo">Modelo:</label>
+                <input type="text" id="editarModelo">
+
+                <label for="editarCondicion">
+                    Condición física:
+                </label>
+                <input type="text" id="editarCondicion">
+
+                <button type="submit">
+                    Guardar cambios
+                </button>
+
+                <button type="button" id="cancelarEdicion">
+                    Cancelar
+                </button>
+
+            </form>
+
+        </section>
+
     </main>
 
     <footer>
@@ -104,5 +136,6 @@
     </footer>
 
     <script src="script.js"></script>
+
 </body>
 </html>

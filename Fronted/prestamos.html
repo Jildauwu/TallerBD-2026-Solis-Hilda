@@ -1,10 +1,11 @@
 
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+        content="width=device-width, initial-scale=1.0">
     <title>Préstamos - Control de Equipos</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
@@ -34,50 +35,53 @@
 
             <label for="equipo">Equipo:</label>
             <select id="equipo" required>
-                <option value="">Seleccione un equipo</option>
-                <option value="1">EQ001 - Laptop HP</option>
-                <option value="2">EQ002 - Proyector Epson</option>
+                <option value="">
+                    Seleccione un equipo
+                </option>
             </select>
 
             <label for="solicitante">Solicitante:</label>
             <select id="solicitante" required>
-                <option value="">Seleccione un solicitante</option>
-                <option value="1">Ana López</option>
-                <option value="2">Carlos Pérez</option>
+                <option value="">
+                    Seleccione un solicitante
+                </option>
             </select>
 
             <label for="usuario">Usuario responsable:</label>
             <select id="usuario" required>
-                <option value="">Seleccione un usuario</option>
-                <option value="1">Administrador</option>
-                <option value="2">Encargado</option>
+                <option value="">
+                    Seleccione un usuario
+                </option>
             </select>
 
             <label for="fechaPrestamo">
                 Fecha y hora del préstamo:
             </label>
-            <input type="datetime-local"
-                   id="fechaPrestamo" required>
+            <input
+                type="datetime-local"
+                id="fechaPrestamo"
+                required
+            >
 
             <label for="fechaPrevista">
                 Fecha prevista de devolución:
             </label>
-            <input type="datetime-local"
-                   id="fechaPrevista" required>
+            <input
+                type="datetime-local"
+                id="fechaPrevista"
+                required
+            >
 
-            <label for="estado">Estado del préstamo:</label>
-            <select id="estado" required>
-                <option value="activo">Activo</option>
-                <option value="devuelto">Devuelto</option>
-            </select>
-
-            <button type="button" disabled>
-                Guardar préstamo (próximamente)
+            <button type="submit">
+                Guardar préstamo
             </button>
+
         </form>
 
         <h2>Lista de préstamos</h2>
-        <p>Datos de ejemplo para visualizar el diseño.</p>
+        <p>
+            Préstamos registrados en la base de datos.
+        </p>
 
         <div class="tabla-contenedor">
             <table>
@@ -91,24 +95,10 @@
                         <th>Estado</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Laptop HP</td>
-                        <td>Ana López</td>
-                        <td>2026-11-18 09:00</td>
-                        <td>2026-11-20 13:00</td>
-                        <td>Activo</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Proyector Epson</td>
-                        <td>Carlos Pérez</td>
-                        <td>2026-11-17 10:00</td>
-                        <td>2026-11-19 12:00</td>
-                        <td>Devuelto</td>
-                    </tr>
+
+                <tbody id="tablaPrestamos">
                 </tbody>
+
             </table>
         </div>
     </main>
@@ -118,5 +108,6 @@
     </footer>
 
     <script src="script.js"></script>
+
 </body>
 </html>

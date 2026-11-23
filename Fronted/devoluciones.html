@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+        content="width=device-width, initial-scale=1.0">
 
     <title>Devoluciones - Control de Equipos</title>
     <link rel="stylesheet" href="estilos.css">
@@ -41,12 +41,6 @@
                 <option value="">
                     Seleccione un préstamo
                 </option>
-                <option value="1">
-                    Préstamo 1 - Laptop HP
-                </option>
-                <option value="2">
-                    Préstamo 2 - Proyector Epson
-                </option>
             </select>
 
             <label for="fechaDevolucion">
@@ -77,8 +71,8 @@
                 placeholder="Escriba observaciones adicionales"
             ></textarea>
 
-            <button type="button" disabled>
-                Registrar devolución (próximamente)
+            <button type="submit">
+                Registrar devolución
             </button>
 
         </form>
@@ -86,8 +80,7 @@
         <h2>Lista de devoluciones</h2>
 
         <p>
-            Datos de ejemplo para visualizar
-            el diseño de la tabla.
+            Devoluciones registradas en la base de datos.
         </p>
 
         <div class="tabla-contenedor">
@@ -103,23 +96,7 @@
                     </tr>
                 </thead>
 
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>Proyector Epson</td>
-                        <td>2026-11-19 12:00</td>
-                        <td>Buen estado</td>
-                        <td>Sin daños visibles</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>3</td>
-                        <td>Laptop Dell</td>
-                        <td>2026-11-18 14:30</td>
-                        <td>Buen estado</td>
-                        <td>Equipo completo</td>
-                    </tr>
+                <tbody id="tablaDevoluciones">
                 </tbody>
             </table>
         </div>
@@ -130,5 +107,6 @@
     </footer>
 
     <script src="script.js"></script>
+
 </body>
 </html>
