@@ -1,146 +1,594 @@
-SISTEMA DE CONTROL DE PRESTAMOS DE EQUIPO TECNOLOGICO 
+&#x20;Sistema de Control de Préstamos de Equipo Tecnológico
 
-(Actualización)
+(Actualización 2)
 
 
 
-Descripción del proyecto
+&#x20;Descripción del proyecto
 
 
 
-Este proyecto consiste en desarrollar una aplicación web para llevar el control de los prestamos de equipos tecnológicos de una institución.
+Este proyecto consiste en desarrollar una aplicación web para administrar los préstamos de equipos tecnológicos de una institución.
 
-&#x20;el sistemas permitirá registrar equipos solicitantes, prestamos y devoluciones, además de consultar la disponibilidad de cada equipo.
 
 
+El sistema permite registrar equipos, solicitantes, préstamos y devoluciones, además de consultar la disponibilidad de los equipos y mantener un historial de los movimientos realizados.
 
-Tecnologías que se usaran en este proyecto:
 
-\-Linux 
 
-\-Apache
+El aplicativo utiliza una base de datos relacional en MariaDB y un backend desarrollado con PHP 8 para ejecutar las operaciones SQL.
 
-\-PHP 8
 
-\-MariaDB
 
-\-HTML y CSS
+&#x20;Tecnologías utilizadas
 
-\-JavaScript
 
 
+\- Linux (Debian)
 
-por e momento se utilizo MariaDb para realizar la estructura DDL de la base de datos
+\- Apache
 
+\- PHP 8
 
+\- MariaDB
 
-Base de Datos
+\- HTML5
 
+\- CSS3
 
+\- JavaScript
 
-La base de datos se llama Control\_prestamos y contiene las siguientes tablas:
+\- Git y GitHub
 
+\- Visual Studio Code
 
+\- FileZilla (SFTP)
 
-1.-Categorías: almacena los tipos de equipos tecnológicos.
 
-2.-Equipos: registra los equipos, sus características y su estado actual.
 
-3.-Solicitantes: guarda los datos de las personas que solicitan equipos.
+&#x20;Base de datos
 
-4.-Usuarios: registra a los encargados del sistema.
 
-5.-Prestamos: almacena los préstamos realizados.
 
-6.-Devoluciones: registra la devolución de los equipos.
+La base de datos se llama `control\_prestamos`.
 
-7.-Departamentos: almacena los departamentos a los que pertenecen los solicitantes.
 
 
+Contiene las siguientes tablas:
 
-Relación entre tablas:
 
 
+1\. \*\*categorias:\*\* almacena los tipos de equipos tecnológicos.
 
-\-Una categoría puede tener varios equipos.
+2\. \*\*departamentos:\*\* registra los departamentos de la institución.
 
-\-Un equipo puede tener varios préstamos en diferentes fechas.
+3\. \*\*equipos:\*\* almacena la información y disponibilidad de los equipos.
 
-\-Un solicitante puede realizar varios préstamos.
+4\. \*\*solicitantes:\*\* registra las personas que solicitan equipos.
 
-\-Un usuario puede registrar varios préstamos.
+5\. \*\*usuarios:\*\* almacena los usuarios responsables del sistema.
 
-\-Un préstamo puede tener una devolución.
+6\. \*\*prestamos:\*\* registra los préstamos realizados.
 
-\-Un departamento puede tener varios solicitantes.
+7\. \*\*devoluciones:\*\* almacena las devoluciones de los equipos.
 
 
 
-Primer avance
+&#x20;Relaciones entre tablas
 
-Realicé el diseño inicial de la base de datos mediante DDL, incluyendo seis tablas, llaves primarias, llaves foráneas y relaciones.
 
 
+\- Una categoría puede tener varios equipos.
 
-También agregué restricciones como PRIMARY KEY, FOREIGN KEY, UNIQUE y CHECK para mantener la integridad de los datos.
+\- Un departamento puede tener varios solicitantes.
 
+\- Un equipo puede tener varios préstamos en distintas fechas.
 
+\- Un solicitante puede realizar varios préstamos.
 
-Modificaciones después de la revisión 
+\- Un usuario puede registrar varios préstamos.
 
+\- Un préstamo puede tener una devolución.
 
 
-Las siguientes modificaciones que realice fueron gracias a las observaciones que realizo el Maestro.
 
+Estas relaciones se implementan mediante claves primarias y foráneas.
 
 
 
+&#x20;Estructura del proyecto
 
-1\. Se agregó la tabla departamentos.
 
 
+&#x20;Carpeta Backend
 
-Esta tabla permite almacenar los nombres de los departamentos de la institución sin tener que repetirlos en cada solicitante.
 
 
+Contiene los archivos PHP responsables de la conexión y de las operaciones con MariaDB.
 
-2\. Se modificó la tabla solicitantes.
 
 
+\- `conexion.php`
 
-Anteriormente tenía un campo llamado departamento, donde se guardaba directamente el nombre. Ahora se utiliza id\_departamento como llave foránea para relacionarla con la nueva tabla.
+\- `guardar\_equipo.php`
 
+\- `listar\_equipos.php`
 
+\- `actualizar\_equipo.php`
 
-3\. Se actualizó la relación entre tablas.
+\- `desactivar\_equipo.php`
 
+\- `eliminar\_categoria.php`
 
+\- `guardar\_solicitante.php`
 
-Se agregó la relación entre departamentos y solicitantes, donde un departamento puede tener varios solicitantes.
+\- `listar\_solicitantes.php`
 
+\- `listar\_departamentos.php`
 
+\- `guardar\_prestamo.php`
 
-4\. Se mantuvieron las restricciones originales.
+\- `listar\_prestamos.php`
 
+\- `datos\_prestamo.php`
 
+\- `prestamos\_activos.php`
 
-Se conservaron las llaves primarias, foráneas y restricciones para validar la información de las tablas.
+\- `registrar\_devolucion.php`
 
+\- `listar\_devoluciones.php`
 
 
-Con estas modificaciones, la base de datos pasó de tener seis tablas a siete.
 
+&#x20;Carpeta Fronted
 
 
-Estado actual
 
+Contiene los archivos de la interfaz web.
 
 
-La base de datos cuenta con siete tablas relacionadas y su estructura DDL.
 
+\- `index.html`: página principal.
 
+\- `equipos.html`: registro y administración de equipos.
 
-Estas modificaciones permiten tener una mejor organización de la información y continuar con el desarrollo de la aplicación web.
+\- `solicitantes.html`: registro y consulta de solicitantes.
 
+\- `prestamos.html`: registro e historial de préstamos.
 
+\- `devoluciones.html`: registro e historial de devoluciones.
+
+\- `estilos.css`: estilos de la aplicación.
+
+\- `script.js`: funcionamiento de los formularios y comunicación con PHP.
+
+
+
+&#x20;Primer avance: Base de datos
+
+
+
+Se desarrolló el diseño inicial de la base de datos mediante instrucciones DDL.
+
+
+
+Se crearon las tablas, claves primarias, claves foráneas y relaciones necesarias para el funcionamiento del sistema.
+
+
+
+También se realizaron ajustes para mejorar la integridad de los datos y evitar inconsistencias en el registro de préstamos.
+
+
+
+&#x20;Segundo avance: Frontend
+
+
+
+Se desarrolló la estructura visual del aplicativo utilizando HTML, CSS y JavaScript.
+
+
+
+Se implementaron:
+
+
+
+\- Página principal.
+
+\- Menú de navegación.
+
+\- Formulario de registro de equipos.
+
+\- Formulario de solicitantes.
+
+\- Formulario de préstamos.
+
+\- Formulario de devoluciones.
+
+\- Tablas para mostrar información.
+
+\- Estilos para diferentes tamaños de pantalla.
+
+
+
+En esta etapa se prepararon los componentes visuales para conectarlos posteriormente con MariaDB.
+
+
+
+&#x20;Tercer avance: Backend e integración SQL
+
+
+
+Para el tercer avance se desarrolló el backend utilizando PHP 8 y MariaDB.
+
+
+
+&#x20;1. Conexión a MariaDB
+
+
+
+Archivo: `conexion.php`
+
+
+
+Se implementó la conexión mediante PDO.
+
+
+
+La contraseña de la base de datos se obtiene mediante la variable de entorno `DB\_PASSWORD`, evitando escribirla directamente en el código fuente.
+
+
+
+&#x20;2. SELECT: Consultar registros
+
+
+
+Archivos:
+
+
+
+\- `listar\_equipos.php`
+
+\- `listar\_solicitantes.php`
+
+\- `listar\_prestamos.php`
+
+\- `listar\_devoluciones.php`
+
+\- `listar\_departamentos.php`
+
+\- `prestamos\_activos.php`
+
+
+
+Permiten consultar información almacenada en MariaDB y devolver los resultados en formato JSON.
+
+
+
+&#x20;3. INSERT: Registrar información
+
+
+
+Archivos:
+
+
+
+\- `guardar\_equipo.php`
+
+\- `guardar\_solicitante.php`
+
+\- `guardar\_prestamo.php`
+
+\- `registrar\_devolucion.php`
+
+
+
+Permiten insertar nuevos registros mediante consultas parametrizadas.
+
+
+
+&#x20;4. UPDATE: Modificar información
+
+
+
+Archivos:
+
+
+
+\- `actualizar\_equipo.php`
+
+\- `desactivar\_equipo.php`
+
+\- `registrar\_devolucion.php`
+
+
+
+Permiten actualizar registros existentes.
+
+
+
+La desactivación de equipos es lógica, mediante una actualización del campo `activo`.
+
+
+
+Al registrar una devolución, también se actualiza el estado del préstamo y del equipo.
+
+
+
+&#x20;5. DELETE: Eliminar registros
+
+
+
+Archivo: `eliminar\_categoria.php`
+
+
+
+Se implementó una operación DELETE para eliminar categorías que no tengan equipos asociados.
+
+
+
+El archivo:
+
+
+
+\- Recibe una solicitud POST con el identificador de la categoría.
+
+\- Comprueba que la categoría exista.
+
+\- Verifica que no tenga equipos relacionados.
+
+\- Ejecuta una consulta DELETE parametrizada.
+
+\- Utiliza una transacción para controlar la operación.
+
+
+
+Esta funcionalidad fue probada en el entorno de desarrollo.
+
+
+
+La eliminación se realiza mediante el backend; no se incorporó un botón DELETE al frontend.
+
+
+
+&#x20;6. JOIN: Consultas relacionadas
+
+
+
+Archivos:
+
+
+
+\- `listar\_prestamos.php`
+
+\- `listar\_solicitantes.php`
+
+\- `listar\_devoluciones.php`
+
+
+
+Se utilizan consultas JOIN para relacionar información de diferentes tablas.
+
+
+
+Por ejemplo, el historial de préstamos permite consultar el equipo prestado, el solicitante, el responsable, las fechas y el estado.
+
+
+
+&#x20;7. Consultas parametrizadas
+
+
+
+Las operaciones que procesan datos proporcionados por el usuario utilizan consultas preparadas con PDO.
+
+
+
+Se emplean los métodos:
+
+
+
+\- `prepare()`
+
+\- `execute()`
+
+
+
+Esto evita construir instrucciones SQL mediante la concatenación directa de los datos recibidos.
+
+
+
+&#x20;8. Transacciones
+
+
+
+El registro de préstamos y devoluciones utiliza transacciones.
+
+
+
+Al registrar un préstamo:
+
+
+
+1\. Se verifica la disponibilidad del equipo.
+
+2\. Se registra el préstamo.
+
+3\. Se cambia el estado del equipo a prestado.
+
+4\. Se confirman los cambios.
+
+
+
+Al registrar una devolución:
+
+
+
+1\. Se verifica el préstamo activo.
+
+2\. Se registra la devolución.
+
+3\. Se cambia el estado del préstamo a devuelto.
+
+4\. Se actualiza la disponibilidad del equipo.
+
+5\. Se confirman los cambios.
+
+
+
+Si ocurre un error, la transacción permite revertir las modificaciones.
+
+
+
+&#x20;Funcionamiento de la aplicación
+
+
+
+&#x20;Equipos
+
+
+
+Permite registrar, consultar, editar y desactivar equipos tecnológicos.
+
+
+
+&#x20;Solicitantes
+
+
+
+Permite registrar solicitantes y consultar su departamento correspondiente.
+
+
+
+&#x20;Préstamos
+
+
+
+Permite registrar préstamos, consultar el historial e impedir que un equipo prestado se registre nuevamente como disponible.
+
+
+
+&#x20;Devoluciones
+
+
+
+Permite registrar devoluciones, consultar el historial y actualizar los estados correspondientes en la base de datos.
+
+
+
+&#x20;Ejecución en el entorno de desarrollo
+
+
+
+La aplicación se ha probado utilizando Debian, Apache, PHP y MariaDB.
+
+
+
+Para ejecutarla se requiere:
+
+
+
+1\. Tener Apache, PHP 8 y MariaDB instalados y configurados.
+
+2\. Crear la base de datos `control\_prestamos` con su estructura de tablas y relaciones.
+
+3\. Configurar un usuario de MariaDB con los permisos necesarios.
+
+4\. Configurar la conexión PDO y la variable de entorno `DB\_PASSWORD`.
+
+5\. Colocar los archivos PHP del backend en el directorio de publicación configurado en Apache.
+
+6\. Colocar la carpeta `Fronted` dentro del directorio de la aplicación.
+
+7\. Abrir la página principal desde un navegador.
+
+
+
+En el entorno utilizado durante el desarrollo, la página principal se encuentra en:
+
+
+
+`http://192.168.67.128/control\_prestamos/Fronted/index.html`
+
+
+
+Esta dirección corresponde a una IP privada de desarrollo y puede cambiar según la configuración de red.
+
+
+
+&#x20;Verificación de operaciones
+
+
+
+Las operaciones SELECT pueden comprobarse mediante los endpoints PHP de consulta.
+
+
+
+Las operaciones INSERT y UPDATE pueden verificarse desde los formularios de la aplicación y posteriormente consultando los registros en MariaDB.
+
+
+
+El DELETE puede verificarse realizando una solicitud POST a `eliminar\_categoria.php`, enviando un JSON con el campo `id\_categoria` correspondiente a una categoría de prueba sin equipos asociados.
+
+
+
+Ejemplo del contenido JSON:
+
+
+
+```json
+
+{
+
+&#x20; "id\_categoria": 5
+
+}
+
+```
+
+
+
+El identificador 5 es únicamente ilustrativo y debe sustituirse por el ID real de una categoría creada para la prueba.
+
+
+
+Después se puede ejecutar un SELECT en MariaDB para comprobar que el registro fue eliminado.
+
+
+
+La operación DELETE debe probarse únicamente en un entorno de desarrollo controlado.
+
+
+
+&#x20;Seguridad
+
+
+
+\- La contraseña de MariaDB se obtiene mediante una variable de entorno.
+
+\- Se utilizan consultas parametrizadas para procesar los datos del usuario.
+
+\- Se validan diferentes campos antes de realizar operaciones.
+
+\- Se utilizan transacciones para operaciones relacionadas.
+
+\- No se deben publicar contraseñas ni archivos privados de configuración.
+
+
+
+La autenticación y autorización de los endpoints todavía requieren trabajo adicional antes de publicar la aplicación en un servidor accesible por Internet.
+
+
+
+&#x20;Estado actual
+
+
+
+El tercer avance incorpora la conexión entre PHP y MariaDB, así como operaciones SELECT, INSERT, UPDATE, DELETE y JOIN.
+
+
+
+Se realizaron pruebas de registro, consulta, modificación y eliminación, además del funcionamiento de préstamos y devoluciones.
+
+
+
+El proyecto continuará desarrollándose para completar los requisitos de la entrega final.
 
